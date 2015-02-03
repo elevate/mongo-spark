@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: org.scalaz:scalaz-core_2.10:7.1.0:">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/bundles/org.scalaz/scalaz-core_2.10/scalaz-core_2.10-7.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

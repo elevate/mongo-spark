@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: io.argonaut:argonaut_2.10:6.0.4:">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/io.argonaut/argonaut_2.10/argonaut_2.10-6.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -15,10 +15,13 @@ import org.bson.BSONObject
 import org.bson.BasicBSONObject
 import com.mongodb._
 
-import com.fasterxml.jackson.module.scala.DefaultScalaModule
-import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.DeserializationFeature
+import scalaz._
+import Scalaz._
+
+//import com.fasterxml.jackson.module.scala.DefaultScalaModule
+//import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
+//import com.fasterxml.jackson.databind.ObjectMapper
+//import com.fasterxml.jackson.databind.DeserializationFeature
 
 
 // import com.mongodb.casbah.conversions.scala._
@@ -34,19 +37,19 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 //return skills keyed
 
 case class SkillTag (
-  _id: Option[Int]=None,
-  Name: Option[String]=None
+  _id: Option[Int],
+  Name: Option[String]
 )
 
 case class Experience (
-  CompanyName:Option[String]=None,
-  Skills:List[SkillTag]
+  CompanyName: Option[String],
+  Skills: List[SkillTag]
 )
 
 case class Profile (
   _id: String,
-  EmailAddress: Option[String]=None,
-  Experience:List[Experience]
+  EmailAddress: Option[String],
+  Experience: List[Experience]
 )
 
 
@@ -81,23 +84,31 @@ object ScalaWordCount {
   def buildObject(dbo: BSONObject): Option[Profile] = {
     // grater[Profile].asObject(dbo)
 
-    val id = dbo.get("_id").asInstanceOf[String];
-    val name = Some(dbo.get("EmailAddress").asInstanceOf[String]);
+    for {
+      id <- Option(dbo.get("_id").asInstanceOf[String])
+      name = Option(dbo.get("EmailAddress").asInstanceOf[String])
+      exp <- Option(dbo.get("Experience").asInstanceOf[BasicDBList])
+      ee <- exp.traverse(e => )
+    } yield new Profile(id, name, null)
 
-    val experience = Option(dbo.get("Experience").asInstanceOf[BasicDBList]) match {
-      case Some(e: BasicDBList) => {
-        
-        val list = e.asInstanceOf[List[Object]]
-        var x = list.map((x: BSONObject) => getExperience(x))
+ //   val id = dbo.get("_id").asInstanceOf[String]
+   // val name = Option(dbo.get("EmailAddress").asInstanceOf[String])
 
-        List[Experience]()
-      }
-      case None => List[Experience]()
-    }
+//    val experience = Option(dbo.get("Experience").asInstanceOf[BasicDBList]) match {
+//      case Some(e: BasicDBList) => {
+//
+//        val list = e.asInstanceOf[List[Object]]
+//        var x = list.map((x: BSONObject) => getExperience(x))
+//
+//        //List[Experience]()
+//      }
+//      case None => List[Experience]()
+//    }
 
 
 
-    Some(new Profile(id, name, experience))
+
+//    Some(new Profile(id, name, experience))
   }
 
   def main(args: Array[String]) {

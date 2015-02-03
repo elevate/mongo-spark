@@ -12,12 +12,8 @@ libraryDependencies ++= Seq(
 	"org.apache.spark" %% "spark-core" % "1.2.0",
 	"org.apache.hadoop" % "hadoop-client" % "2.2.0",
 	"org.mongodb" % "mongo-java-driver" % "2.11.4",
-	"com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.3.3",
-    "com.fasterxml.jackson.core" % "jackson-core" % "2.3.3",
-    "com.fasterxml.jackson.core" % "jackson-databind" % "2.3.3",
-    "com.fasterxml.jackson.core" % "jackson-annotations" % "2.3.3",
-		"io.argonaut" %% "argonaut" % "6.0.4"
-
+		"io.argonaut" %% "argonaut" % "6.0.4",
+"org.scalaz" %% "scalaz-core" % "7.1.0"
 )
 
 retrieveManaged := true
