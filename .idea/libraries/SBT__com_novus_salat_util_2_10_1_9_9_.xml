@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.novus:salat-util_2.10:1.9.9:">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/com.novus/salat-util_2.10/salat-util_2.10-1.9.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
